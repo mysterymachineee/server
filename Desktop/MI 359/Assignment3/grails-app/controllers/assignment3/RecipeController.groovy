@@ -1,5 +1,7 @@
 package assignment3
 
+import grails.plugin.springsecurity.annotation.Secured
+
 class RecipeController {
     static hasMany = [flavors: String]
 
@@ -10,13 +12,23 @@ class RecipeController {
     }
     def createRecipe() {
 
-        def p = new Recipe(params);
-        p.save();
-        redirect(action:"index")
+        def recipe = new Recipe(params);
+        if (recipe.save()) {
+            redirect(action: "index")
+        }
+        else{
+            render(view:"newRecipeForm",model:[recipe:recipe])
+        }
     }
 
     def newRecipeForm (){
-        [type : ["Main Course","Dessert","Side Dish"], flavours : ["Salty","Sweet","Sour","Bitter","Umami"]]
+
+    }
+
+    def deleteRecipe(){
+        def p = Recipe.get(params.int('id'));
+        p.delete()
+        redirect(action:"index")
     }
 }
 

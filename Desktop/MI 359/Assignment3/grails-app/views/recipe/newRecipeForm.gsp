@@ -13,24 +13,33 @@
 
 <body>
 <h1>Add a new recipe</h1>
+<g:hasErrors bean="${recipe}">
+    <ul>
+        <g:eachError var="err" bean="${recipe}">
+            <li><g:message error="${err}"/></li>
+        </g:eachError>
+    </ul>
+</g:hasErrors>
+
 <g:form action="createRecipe">
     Your recipe name:
-    <g:textField name="name"/> <br/>
+    <g:textField name="name" value="${fieldValue(bean: recipe, field: 'name')}"/> <br/>
 
-    Preparation time hours: <g:textField name="hours"/> minutes: <g:textField name="minutes"/> <br/>
+    Preparation time hours: <g:textField name="hours" value="${fieldValue(bean: recipe, field: 'hours')}"/>
+    minutes: <g:textField name="minutes" value="${fieldValue(bean: recipe, field: 'minutes')}"/> <br/>
 
-    Link to recipe:<g:textField name="link"/> <br/>
+    Link to recipe:<g:textField name="link" value="${fieldValue(bean: recipe, field: 'link')}"/> <br/>
 
-    Type of Dish: <g:select name='type.id'
+    Type of Dish: <g:select name="type" value="${fieldValue(bean: recipe, field: 'type')}"
                             noSelection="${['null':'Select One...']}"
-                            from='${type}'>
-</g:select> <br/>
+                            from="${ ["Main Course", "Dessert", "Side Dish"] }"> </g:select> <br/>
 
-    Flavours: <g:select name="flavours"
-                        from="${flavours}"
+    Flavours: <g:select name="flavours" value="${fieldValue(bean: recipe, field: 'flavours')}"
+                        from="${["Salty","Sweet","Sour","Bitter","Umami"]}"
                         multiple="true" /> <br/>
 
     <g:submitButton name="Submit"/>
 </g:form>
+
 </body>
 </html>

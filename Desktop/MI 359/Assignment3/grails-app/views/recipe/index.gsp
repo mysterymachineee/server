@@ -13,19 +13,33 @@
 
 <body>
 <g:if test="${recipe.empty}">
-    Your list is empty. <g:link action="newRecipeForm">Add another recipe</g:link>
+    Your list is empty.
 </g:if>
 <g:else>
-    <g:each var="name" in="${recipe}">
-        <p>Name: ${recipe.name}</p>
-        <p>Type: ${recipe.type}</p>
-        <p>Category: ${recipe.category}</p>
-        <p>Flavours: ${recipe.flavours}</p>
-        <p>Prep Time: hour(s) ${recipe.hours} minutes ${recipe.minutes}</p>
-        <p>Link: ${recipe.link}</p>
-    </g:each>
-    <g:link action="newRecipeForm">Add another recipe</g:link>
+    <table style="width:100%">
+        <tr>
+            <th>Name:</th>
+            <th>Type:</th>
+            <th>Flavours:</th>
+            <th>Prep Time (Hours):</th>
+            <th>(Minutes):</th>
+            <th>Link</th>
+        </tr>
+        <tr>
+            <g:each var="name" in="${recipe}">
+                <td>${recipe.name}</td>
+                <td>${recipe.type}</td>
+                <td>${recipe.flavours}</td>
+                <td>${recipe.hours} </td>
+                <td>${recipe.minutes}</td>
+                <td> ${recipe.link}</td>
+                <td><g:link action="deletePersonForm">Delete</g:link></td>
+            </g:each>
+        </tr>
+
+    </table>
 </g:else>
+<g:link action="newRecipeForm">Add another recipe</g:link>
 
 </body>
 </html>
