@@ -12,8 +12,16 @@
 </head>
 
 <body>
+
+
+<sec:ifNotGranted roles='ROLE_ADMIN'>
     <g:form action="deleteRecipe">
     <g:actionSubmit value="Delete" />
-    </g:form>
+    </g:form> <br/>
+    <sec:ifLoggedIn>
+        <g:link controller='logout' action='auth'>Logout</g:link>  <br/>
+    </sec:ifLoggedIn>
+</sec:ifNotGranted>
+
 </body>
 </html>

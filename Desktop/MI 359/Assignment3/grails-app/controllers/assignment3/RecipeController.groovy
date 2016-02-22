@@ -25,6 +25,12 @@ class RecipeController {
 
     }
 
+    def deleteUser(){
+        def p = Assignment3.User.get(params.int('id'));
+        p.delete()
+        redirect(action:'admin')
+    }
+
     def deleteRecipe(){
         def p = Recipe.get(params.int('id'));
         p.delete()

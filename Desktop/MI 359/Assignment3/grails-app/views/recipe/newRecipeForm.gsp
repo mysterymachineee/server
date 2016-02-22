@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<sec:ifLoggedIn>
 <h1>Add a new recipe</h1>
 <g:hasErrors bean="${recipe}">
     <ul>
@@ -38,8 +39,11 @@
                         from="${["Salty","Sweet","Sour","Bitter","Umami"]}"
                         multiple="true" /> <br/>
 
-    <g:submitButton name="Submit"/>
-</g:form>
+    <g:submitButton name="Submit"/><br/>
 
+    <g:link controller='logout' action='auth'>Logout</g:link>
+
+</g:form>
+</sec:ifLoggedIn>
 </body>
 </html>
