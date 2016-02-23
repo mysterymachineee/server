@@ -12,8 +12,6 @@
 </head>
 
 <body>
-
-
 <g:if test="${recipe.empty}">
     Your list is empty.
 </g:if>
@@ -35,31 +33,13 @@
                 <td>${recipe.hours} </td>
                 <td>${recipe.minutes}</td>
                 <td> ${recipe.link}</td>
-
-                <sec:ifNotGranted roles='ROLE_ADMIN'>
-                <td><g:link action="deleteRecipeForm">Delete</g:link></td>
-                </sec:ifNotGranted>
-
+                <td><g:link action="deletePersonForm">Delete</g:link></td>
             </g:each>
-
         </tr>
 
     </table>
-
 </g:else>
-
-<sec:ifNotLoggedIn>
-    <g:link controller='login' action='auth'>Login</g:link> <br/>
-</sec:ifNotLoggedIn>
-
-<sec:ifLoggedIn>
-<g:link action="newRecipeForm">Add another recipe</g:link> <br/>
-    <g:link controller='logout' action='auth'>Logout</g:link>  <br/>
-</sec:ifLoggedIn>
-
-<sec:ifNotGranted roles='ROLE_ADMIN'>
-        <g:link action='admin'>Administration</g:link>  <br/>
-</sec:ifNotGranted>
+<g:link action="newRecipeForm">Add another recipe</g:link>
 
 </body>
 </html>

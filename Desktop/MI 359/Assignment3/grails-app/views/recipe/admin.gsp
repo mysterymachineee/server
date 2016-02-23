@@ -12,22 +12,12 @@
 </head>
 
 <body>
-<sec:ifNotGranted roles='ROLE_ADMIN'>
-    <table style="width:100%">
-
-        <tr>
-            <th>User</th>
-        </tr>
-
-        <tr>
-            <g:each var="name" in="${User}">
-                <td>${User.username}</td>
-                <td><g:link action="deleteUserForm">Delete</g:link></td>
-
-            </g:each>
-        </tr>
-
-    </table>
-</sec:ifNotGranted>
+<body>
+<g:form name="newUserForm" action="createUser">
+    <g:textField name="name" placeholder="User Name"/>
+    <g:textField name="password" placeholder="Password"/>
+    <g:submitButton name="submit">Submit</g:submitButton>
+</g:form>
+</body>
 </body>
 </html>
