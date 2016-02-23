@@ -13,7 +13,9 @@
 
 <body>
 
-
+<%--
+if admin confirms deletion command gives log out option
+--%>
 <sec:ifNotGranted roles='ROLE_ADMIN'>
     <g:form action="deleteRecipe">
     <g:actionSubmit value="Delete" />

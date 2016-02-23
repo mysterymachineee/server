@@ -13,6 +13,9 @@
 
 <body>
 <body>
+<%--
+create users for admin use
+--%>
 <g:form name="newUserForm" action="createUser">
     <g:textField name="name" placeholder="User Name"/>
     <g:textField name="password" placeholder="Password"/>

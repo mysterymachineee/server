@@ -13,6 +13,9 @@
 
 <body>
 <sec:ifLoggedIn>
+<%--
+error checking/ secuirty for logged in users only
+--%>
 <h1>Add a new recipe</h1>
 <g:hasErrors bean="${recipe}">
     <ul>
@@ -22,6 +25,9 @@
     </ul>
 </g:hasErrors>
 
+<%--
+input fields for recipe, form action in controller
+--%>
 <g:form action="createRecipe">
     Your recipe name:
     <g:textField name="name" value="${fieldValue(bean: recipe, field: 'name')}"/> <br/>
