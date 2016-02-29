@@ -8,14 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <meta name="layout" content="main"/>
     <title></title>
 </head>
 
 <body>
-<sec:ifLoggedIn>
+
+
+
 <%--
-error checking/ secuirty for logged in users only
+error checking/ security for logged in users only
 --%>
+
 <h1>Add a new recipe</h1>
 <g:hasErrors bean="${recipe}">
     <ul>
@@ -28,28 +32,13 @@ error checking/ secuirty for logged in users only
 <%--
 input fields for recipe, form action in controller
 --%>
+
 <g:form action="createRecipe">
-    Your recipe name:
-    <g:textField name="name" value="${fieldValue(bean: recipe, field: 'name')}"/> <br/>
-
-    Preparation time hours: <g:textField name="hours" value="${fieldValue(bean: recipe, field: 'hours')}"/>
-    minutes: <g:textField name="minutes" value="${fieldValue(bean: recipe, field: 'minutes')}"/> <br/>
-
-    Link to recipe:<g:textField name="link" value="${fieldValue(bean: recipe, field: 'link')}"/> <br/>
-
-    Type of Dish: <g:select name="type" value="${fieldValue(bean: recipe, field: 'type')}"
-                            noSelection="${['null':'Select One...']}"
-                            from="${ ["Main Course", "Dessert", "Side Dish"] }"> </g:select> <br/>
-
-    Flavours: <g:select name="flavours" value="${fieldValue(bean: recipe, field: 'flavours')}"
-                        from="${["Salty","Sweet","Sour","Bitter","Umami"]}"
-                        multiple="true" /> <br/>
-
-    <g:submitButton name="Submit"/><br/>
-
+    <g:render template="createform"/>
+    <g:submitButton name="submit" value="Add new recipe"/><br/>
     <g:link controller='logout' action='auth'>Logout</g:link>
-
 </g:form>
-</sec:ifLoggedIn>
+
+
 </body>
 </html>

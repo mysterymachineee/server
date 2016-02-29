@@ -8,12 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <meta name="layout" content="main"/>
     <title></title>
 </head>
 
 <body>
-
-
 <g:if test="${recipes.empty}">
     Your list is empty.<br/>
 </g:if>
@@ -29,7 +28,6 @@ Creates a table that displays recipe info passed from newRecipieForm.gsp
         <th>Prep Time Hours:</th>
         <th>Minutes:</th>
         <th>Link</th>
-        </tr>
         </thead>
 
         <g:each var="recipe" in="${recipes}">
@@ -43,7 +41,12 @@ Creates a table that displays recipe info passed from newRecipieForm.gsp
                 <td><g:form action="delete">
                     <g:hiddenField name="id" value="${recipe.id}" />
                     <g:submitButton name="Delete"/>
-                </g:form></td>            </tr>
+                </g:form></td>
+                <td><g:form action="edit">
+                    <g:hiddenField name="id" value="${recipe.id}" />
+                    <g:submitButton name="Edit"/>
+                </g:form></td>
+            </tr>
         </g:each>
     </table>
 </g:else>

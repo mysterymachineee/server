@@ -1,9 +1,10 @@
-package Assignment3
+package assignment3
 
 import grails.gorm.DetachedCriteria
 import groovy.transform.ToString
 
 import org.apache.commons.lang.builder.HashCodeBuilder
+
 
 @ToString(cache=true, includeNames=true, includePackage=false)
 class UserRole implements Serializable {

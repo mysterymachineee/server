@@ -5,13 +5,31 @@
   Time: 11:06 AM
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="assignment3.User" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <meta name="layout" content="main"/>
     <title></title>
 </head>
 
 <body>
+
+<table style="width:100%">
+    <thead>
+    <th>Name:</th>
+    </thead>
+
+    <g:each var="username" in="${assignment3.User.list()}">
+        <tr>
+            <td>${User.name}</td>
+            <td><g:form action="deleteUser">
+                <g:hiddenField name="id" value="${User.name}" />
+                <g:submitButton name="Delete"/>
+            </g:form></td>
+        </tr>
+    </g:each>
+</table>
+
 <%--
 create users for admin use
 --%>

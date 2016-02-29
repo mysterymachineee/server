@@ -1,31 +1,29 @@
-import Assignment3.User
-import Assignment3.Role
-import Assignment3.UserRole
+import assignment3.User
+import assignment3.Role
+import assignment3.UserRole
 
 class BootStrap {
 
     def init = { servletContext ->
-        def adminRole = new Assignment3.Role('ROLE_ADMIN').save()
-        def userRole = new Assignment3.Role('ROLE_USER').save()
+        def adminRole = new Role('ROLE_ADMIN').save()
+        def userRole = new Role('ROLE_USER').save()
 
+        def admin = new User('admin', '1').save()
+        UserRole.create admin, adminRole
 
+        def user = new User('user','1').save()
+        UserRole.create user, userRole
 
-        def admin = new Assignment3.User('admin', '1').save()
-        Assignment3.UserRole.create admin, adminRole
-
-        def user = new Assignment3.User('user','1').save()
-        Assignment3.UserRole.create user, userRole
-
-
-        Assignment3.UserRole.withSession {
+        UserRole.withSession {
             it.flush()
             it.clear()
         }
 
-        assert Assignment3.User.count() == 2
-        assert Assignment3.Role.count() == 2
-        assert Assignment3.UserRole.count() == 2
+        assert User.count() == 2
+        assert Role.count() == 2
+        assert UserRole.count() == 2
     }
+
     def destroy = {
     }
 }

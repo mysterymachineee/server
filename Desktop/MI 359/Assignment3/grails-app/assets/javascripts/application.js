@@ -6,8 +6,11 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery-2.1.3.js
+//= require bootstrap.min.js
+//= require npm.js
 //= require_tree .
 //= require_self
+
 
 if (typeof jQuery !== 'undefined') {
     (function($) {

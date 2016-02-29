@@ -1,4 +1,4 @@
-package Assignment3
+package assignment3
 
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
