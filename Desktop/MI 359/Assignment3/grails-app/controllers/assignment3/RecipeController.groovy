@@ -8,7 +8,7 @@ class RecipeController {
     //creates empty list at start of application
     def index() {
         def recipe = Recipe.list()
-        [recipe:recipe]
+        [recipes:recipe]
 
     }
 
@@ -28,7 +28,7 @@ class RecipeController {
 
     }
 
-    //deletes user when called upon in admin.gsp
+    //deletes user when called upon in admin
     @Secured('ROLE_ADMIN')
     def deleteUser(){
         def p = Assignment3.User.get(params.int('id'));
@@ -47,7 +47,6 @@ class RecipeController {
     @Secured('ROLE_ADMIN')
     def createUser() {
         def userRole = Assignment3.Role.findByAuthority("ROLE_USER")
-
         def user = new Assignment3.User(params.name, params.password).save()
         Assignment3.UserRole.create user, userRole
         redirect(action:"admin")

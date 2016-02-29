@@ -14,41 +14,38 @@
 <body>
 
 
-<g:if test="${recipe.empty}">
-    Your list is empty.
+<g:if test="${recipes.empty}">
+    Your list is empty.<br/>
 </g:if>
 <g:else>
 <%--
 Creates a table that displays recipe info passed from newRecipieForm.gsp
 --%>
     <table style="width:100%">
-        <tr>
-            <th>Name:</th>
-            <th>Type:</th>
-            <th>Flavours:</th>
-            <th>Prep Time (Hours):</th>
-            <th>(Minutes):</th>
-            <th>Link</th>
+        <thead>
+        <th>Name:</th>
+        <th>Type:</th>
+        <th>Flavours:</th>
+        <th>Prep Time Hours:</th>
+        <th>Minutes:</th>
+        <th>Link</th>
         </tr>
-        <tr>
-            <g:each var="name" in="${recipe}">
+        </thead>
+
+        <g:each var="recipe" in="${recipes}">
+            <tr>
                 <td>${recipe.name}</td>
                 <td>${recipe.type}</td>
                 <td>${recipe.flavours}</td>
                 <td>${recipe.hours} </td>
                 <td>${recipe.minutes}</td>
-                <td> ${recipe.link}</td>
-
-                <sec:ifNotGranted roles='ROLE_ADMIN'>
-                <td><g:link action="deleteRecipeForm">Delete</g:link></td>
-                </sec:ifNotGranted>
-
-            </g:each>
-
-        </tr>
-
+                <td>${recipe.link}</td>
+                <td><g:form action="delete">
+                    <g:hiddenField name="id" value="${recipe.id}" />
+                    <g:submitButton name="Delete"/>
+                </g:form></td>            </tr>
+        </g:each>
     </table>
-
 </g:else>
 
 <%--
@@ -69,9 +66,7 @@ if logged in can add a recipe or logout
 <%--
 if admin can access admin page (add new user)
 --%>
-<sec:ifNotGranted roles='ROLE_ADMIN'>
-        <g:link action='admin'>Administration</g:link>  <br/>
-</sec:ifNotGranted>
+<g:link action='admin'>Administration</g:link>  <br/>
 
 </body>
 </html>

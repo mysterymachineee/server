@@ -16,14 +16,13 @@
 <%--
 if admin confirms deletion command gives log out option
 --%>
-<sec:ifNotGranted roles='ROLE_ADMIN'>
-    <g:form action="deleteRecipe">
+<g:form action="deleteRecipe">
     <g:actionSubmit value="Delete" />
-    </g:form> <br/>
-    <sec:ifLoggedIn>
-        <g:link controller='logout' action='auth'>Logout</g:link>  <br/>
-    </sec:ifLoggedIn>
-</sec:ifNotGranted>
+</g:form> <br/>
+
+<sec:ifLoggedIn>
+    <g:link controller='logout' action='auth'>Logout</g:link>  <br/>
+</sec:ifLoggedIn>
 
 </body>
 </html>
