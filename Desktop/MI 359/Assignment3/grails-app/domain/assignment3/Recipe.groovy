@@ -2,7 +2,11 @@ package assignment3
 
 class Recipe {
 //allows multiple flavours
-    static hasMany = [flavors: String]
+
+    static hasMany = {
+        [flavors: String]
+        [ingrediants: Ingrediants]
+    }
 
     static constraints = {
         //error checking for variables
@@ -21,4 +25,6 @@ class Recipe {
     String flavours
     Integer minutes
     Integer hours
+
+
 }

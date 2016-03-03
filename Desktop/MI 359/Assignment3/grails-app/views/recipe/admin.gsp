@@ -19,9 +19,9 @@
     <th>Name:</th>
     </thead>
 
-    <g:each var="username" in="${assignment3.User.list()}">
+    <g:each var="user" in="${assignment3.User.list()}">
         <tr>
-            <td>${User.name}</td>
+            <td>${user.username}</td>
             <td><g:form action="deleteUser">
                 <g:hiddenField name="id" value="${User.name}" />
                 <g:submitButton name="Delete"/>

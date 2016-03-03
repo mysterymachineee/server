@@ -43,12 +43,12 @@ class RecipeController {
     }
 
     def newRecipeForm (){
-        def user = User.list()
-        [users:user]
     }
 
     @Secured('ROLE_ADMIN')
     def admin (){
+        def user = User.list()
+        [user:User.list()]
 
     }
 
@@ -61,9 +61,10 @@ class RecipeController {
     }
 
     //deletes recipe from id passed in index
-    def deleteRecipe(){
-        def user  = User.get(params.int('id'));
-        user.delete()
+    @Secured('ROLE_ADMIN')
+    def delete(){
+        def r  = Recipe.get(params.id);
+        r.delete()
         redirect(action:"index")
     }
 
