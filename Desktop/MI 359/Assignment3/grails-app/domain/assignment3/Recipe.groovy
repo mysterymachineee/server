@@ -5,7 +5,7 @@ class Recipe {
 
     static hasMany = {
         [flavors: String]
-        [ingrediants: Ingrediants]
+        [ingredients: Ingredients]
     }
 
     static constraints = {
@@ -16,6 +16,8 @@ class Recipe {
         flavours blank:false
         minutes blank:false , min:0, max:59
         hours blank:false
+        ingredients nullable: true
+        instructions nullable: true
     }
 
     //variable types
@@ -23,6 +25,8 @@ class Recipe {
     String type
     String link
     String flavours
+    String instructions
+    Ingredients ingredients
     Integer minutes
     Integer hours
 

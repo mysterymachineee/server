@@ -38,5 +38,6 @@ create users for admin use
     <g:textField name="password" placeholder="Password"/>
     <g:submitButton name="submit">Submit</g:submitButton>
 </g:form>
+<g:link action="index">Back</g:link> <br/>
 </body>
 </html>

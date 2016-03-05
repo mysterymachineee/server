@@ -13,21 +13,21 @@
 </head>
 
 <body>
-<g:if test="${i.empty}">
+<g:if test="${ingredients.empty}">
     Your list is empty.<br/>
-    <g:link action = "newIngrediantForm">New Ingredient</g:link>
+    <g:link action = "newIngredientForm">New Ingredient</g:link>
 </g:if>
 <g:else>
 <%--
-Creates a table that displays ingrediant info passed from newRecipieForm.gsp
+Creates a table that displays ingredient info passed from newRecipieForm.gsp
 --%>
     <table style="width:100%">
         <thead>
         <th>Name:</th>
         </thead>
-        <g:each var="i" in="${i}">
+        <g:each var="ingredient" in="${ingredients}">
             <tr>
-                <td>${ingrediant.name}</td>
+                <td>${ingredient.name}</td>
             </tr>
         </g:each>
     </table>

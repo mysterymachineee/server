@@ -16,7 +16,7 @@ class RecipeController {
 
         def recipe = new Recipe(params);
         if (recipe.save()) {
-            redirect(action: "index")
+            redirect(action: "instructions")
         }
         else{
             render(view:"newRecipeForm",model:[recipe:recipe])
@@ -83,6 +83,11 @@ class RecipeController {
         def user = new User(params.name, params.password).save()
         UserRole.create user, userRole
         redirect(action:"admin")
+    }
+
+    @Secured('ROLE_ADMIN')
+    def instructions(){
+
     }
 }
 

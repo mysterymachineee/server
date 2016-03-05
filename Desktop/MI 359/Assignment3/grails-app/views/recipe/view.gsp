@@ -9,10 +9,12 @@
 <html>
 <head>
     <title></title>
+    <meta name="layout" content="main"
 </head>
 
 <body>
 <table style="width:100%">
+
     <thead>
     <th>Name:</th>
     <th>Type:</th>
@@ -20,8 +22,8 @@
     <th>Prep Time Hours:</th>
     <th>Minutes:</th>
     <th>Link</th>
+    <th>Instructions:</th>
     </thead>
-
 
         <tr>
             <td>${params.name}</td>
@@ -30,8 +32,11 @@
             <td>${params.hours} </td>
             <td>${params.minutes}</td>
             <td>${params.link}</td>
+            <td>${params.instructions}</td>
         </tr>
+
 </table>
 <g:link action="index">Back</g:link> <br/>
+
 </body>
 </html>

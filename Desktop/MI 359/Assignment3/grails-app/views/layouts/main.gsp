@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" class="no-js">
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,10 @@
         <g:layoutHead/>
     </head>
     <body>
+    <background>
+
+
+    </background>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
