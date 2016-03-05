@@ -3,7 +3,6 @@ package assignment3
 import grails.plugin.springsecurity.annotation.Secured
 
 class RecipeController {
-    static hasMany = [flavors: String]
 
     //creates empty list at start of application
     def index() {
@@ -28,9 +27,19 @@ class RecipeController {
 
     }
 
+    def view (){
+
+    }
+
     def update (){
         Recipe r = Recipe.get(params.recipeId);
 
+        r.name = params.name
+        r.type = params.type
+        r.link = params.link
+        r.flavours = params.flavours
+        r.minutes = params.minutes
+        r.hours = params.hours
         r.save()
 
         if (r.hasErrors()) {
@@ -49,7 +58,6 @@ class RecipeController {
     def admin (){
         def user = User.list()
         [user:User.list()]
-
     }
 
     //deletes user when called upon in admin

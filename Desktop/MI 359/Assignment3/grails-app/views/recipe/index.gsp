@@ -23,29 +23,45 @@ Creates a table that displays recipe info passed from newRecipieForm.gsp
     <table style="width:100%">
         <thead>
         <th>Name:</th>
-        <th>Type:</th>
-        <th>Flavours:</th>
-        <th>Prep Time Hours:</th>
-        <th>Minutes:</th>
-        <th>Link</th>
         </thead>
 
         <g:each var="recipe" in="${recipes}">
             <tr>
+
                 <td>${recipe.name}</td>
-                <td>${recipe.type}</td>
-                <td>${recipe.flavours}</td>
-                <td>${recipe.hours} </td>
-                <td>${recipe.minutes}</td>
-                <td>${recipe.link}</td>
-                <td><g:form action="delete">
+
+                <td>
+
+                    <g:form action="view">
+                        <g:hiddenField name="id" value="${recipe.id}" />
+                        <g:submitButton name="View"/>
+                        <g:hiddenField name="name" value="${recipe.name}"/>
+                        <g:hiddenField name="flavours" value="${recipe.flavours}"/>
+                        <g:hiddenField name="type" value="${recipe.type}"/>
+                        <g:hiddenField name="hours" value="${recipe.hours}"/>
+                        <g:hiddenField name="minutes" value="${recipe.minutes}"/>
+                        <g:hiddenField name="link" value="${recipe.link}"/>
+                    </g:form>
+                </td>
+
+                <td>
+                    <g:form action="delete">
                     <g:hiddenField name="id" value="${recipe.id}" />
                     <g:submitButton name="Delete"/>
-                </g:form></td>
-                <td><g:form action="edit">
+                    </g:form>
+                </td>
+
+                <td>
+                    <g:form action="edit">
                     <g:hiddenField name="id" value="${recipe.id}" />
                     <g:submitButton name="Edit"/>
-                </g:form></td>
+                    </g:form>
+                </td>
+
+
+
+
+
             </tr>
         </g:each>
     </table>
