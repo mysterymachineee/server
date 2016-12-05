@@ -3,28 +3,106 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Mystery Machine Server</title>
+        <title>Azure Server</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- External link (relative) to your main stylesheet -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/screen.css">
 
+        <!-- External link (relative) to your javascript file -->
 
+
+
+        <style>
+        body {
+        background: linear-gradient(271deg, #43e4bb, #6fe443, #d9e443);
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimationName 6s ease infinite;
+  animation: AnimationName 6s ease infinite;
+}
+
+  @-webkit-keyframes AnimationName {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @keyframes AnimationName {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+
+        .card {
+          background: #fff;
+          border-radius: 10px;
+          box-shadow: 0 0 30px rgba(0,0,0,0.2);
+          margin: 0 auto;
+          margin-top: 100px;
+          padding: 1em;
+          text-align: center;
+          width: 300px;
+        }
+
+        .card--avatar {
+          border-radius: 50%;
+          border: 5px solid #fff;
+          box-shadow: 0 -10px 20px rgba(0,0,0,0.2);
+          margin-top: -60px;
+        }
+
+        .card--header {
+          color: #2c3e50;
+          font-size: 3.2em;
+          font-weight: 100;
+          margin: 0;
+        }
+
+        .card--title {
+          color: #95a5a6;
+          margin: 0.2em 0 0 0;
+        }
+
+        .card--social-links {
+          list-style-type: none;
+          margin: 1em 0 0 0;
+          padding: 0;
+        }
+
+        .card--social-links li {
+          display: inline-block;
+          padding: 1em;
+        }
+
+        .card--social-links a {
+          color: #4aa3df;
+          font-size: 2em;
+        }
+
+        .card--social-links a:hover {
+          color: #9b59b6;
+
+        }
+
+        </style>
         <script src="js/index.js"></script>
     </head>
     <body>
 
 
 
+      <div class="card">
+        <img class="card--avatar" src="http://i65.tinypic.com/28v4owz.jpg" alt="Devan Jenkins, Ashton Tucker, Kristen Nakis" width="75" height="75" />
+        <h1 class="card--header"><a href="mysterymachine.azurewebsites.net">Mystery Machine Server</a></h1>
+        <p class="card--title">Click Server Link for Access!</p>
+        <ul class="card--social-links">
+          <li><a href="#"><i class="fa fa-github"></i></a></li>
+          <div id="gradient" />
+        </ul>
       </div>
-      <div class="RecipeCard2">
-        <a href="mysterymachine.azurewebsites.net">Mystery Machine Server</a>
-        <a href="">Display Data</a>
-        <h1 class="card--header">Click for access!</h1>
 
-
-      </div>
 
     </body>
 </html>
